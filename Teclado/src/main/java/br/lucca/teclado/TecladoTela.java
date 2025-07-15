@@ -32,7 +32,7 @@ public class TecladoTela extends javax.swing.JFrame {
 
         fundo = new javax.swing.JPanel();
         wPanel = new javax.swing.JPanel();
-        wLabelConter = new javax.swing.JLabel();
+        wLabelCounter = new javax.swing.JLabel();
         wLabel = new javax.swing.JLabel();
         dPanel = new javax.swing.JPanel();
         dLabelCounter = new javax.swing.JLabel();
@@ -44,14 +44,22 @@ public class TecladoTela extends javax.swing.JFrame {
         aLabelCounter = new javax.swing.JLabel();
         aLabel = new javax.swing.JLabel();
         mb2Panel = new javax.swing.JPanel();
-        mb2LabelCounter = new javax.swing.JLabel();
-        mb2Label = new javax.swing.JLabel();
+        mb3LabelCounter = new javax.swing.JLabel();
+        mb3Label = new javax.swing.JLabel();
         mb1Panel = new javax.swing.JPanel();
         mb1LabelCounter = new javax.swing.JLabel();
         mb1Label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 formKeyTyped(evt);
             }
@@ -72,9 +80,9 @@ public class TecladoTela extends javax.swing.JFrame {
         wPanel.setBackground(new java.awt.Color(224, 224, 224));
         wPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        wLabelConter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        wLabelConter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        wLabelConter.setText("0");
+        wLabelCounter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        wLabelCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        wLabelCounter.setText("0");
 
         wLabel.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         wLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -85,14 +93,14 @@ public class TecladoTela extends javax.swing.JFrame {
         wPanelLayout.setHorizontalGroup(
             wPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(wLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-            .addComponent(wLabelConter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(wLabelCounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         wPanelLayout.setVerticalGroup(
             wPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(wPanelLayout.createSequentialGroup()
                 .addComponent(wLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(wLabelConter, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(wLabelCounter, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -180,27 +188,27 @@ public class TecladoTela extends javax.swing.JFrame {
         mb2Panel.setBackground(new java.awt.Color(243, 243, 243));
         mb2Panel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        mb2LabelCounter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        mb2LabelCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mb2LabelCounter.setText("0");
+        mb3LabelCounter.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        mb3LabelCounter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mb3LabelCounter.setText("0");
 
-        mb2Label.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        mb2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mb2Label.setText("MB2");
+        mb3Label.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        mb3Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mb3Label.setText("MB3");
 
         javax.swing.GroupLayout mb2PanelLayout = new javax.swing.GroupLayout(mb2Panel);
         mb2Panel.setLayout(mb2PanelLayout);
         mb2PanelLayout.setHorizontalGroup(
             mb2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mb2Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-            .addComponent(mb2LabelCounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mb3Label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+            .addComponent(mb3LabelCounter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         mb2PanelLayout.setVerticalGroup(
             mb2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mb2PanelLayout.createSequentialGroup()
-                .addComponent(mb2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mb3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mb2LabelCounter)
+                .addComponent(mb3LabelCounter)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -304,6 +312,56 @@ public class TecladoTela extends javax.swing.JFrame {
 // AQUI:
     }//GEN-LAST:event_formKeyTyped
 
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+        // TODO add your handling code here:
+        
+        char key = evt.getKeyChar();
+        
+        int w = Integer.parseInt(wLabelCounter.getText());
+        int a = Integer.parseInt(aLabelCounter.getText());
+        int s = Integer.parseInt(sLabelCounter.getText());
+        int d = Integer.parseInt(dLabelCounter.getText());
+        
+        switch (key) {
+            case 'w' -> {
+                w++;
+                wLabelCounter.setText(String.valueOf(w));
+            }
+            case 'a' -> {
+                a++;
+                aLabelCounter.setText(String.valueOf(a));
+            }
+            case 's' -> {
+                s++;
+                sLabelCounter.setText(String.valueOf(s));
+            }
+            case 'd' -> {
+                d++;
+                dLabelCounter.setText(String.valueOf(d));
+            }
+        }
+        
+    }//GEN-LAST:event_formKeyReleased
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        
+        int click = evt.getButton();
+        
+        int mb1 = Integer.parseInt(mb1LabelCounter.getText());
+        int mb3 = Integer.parseInt(mb3LabelCounter.getText());
+        
+        switch (click) {
+            case 1:
+                mb1++;
+                mb1LabelCounter.setText(String.valueOf(mb1));
+                break;
+            case 3:
+                mb3++;
+                mb3LabelCounter.setText(String.valueOf(mb3));
+        }
+    }//GEN-LAST:event_formMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -354,9 +412,9 @@ public class TecladoTela extends javax.swing.JFrame {
     private javax.swing.JLabel mb1Label;
     private javax.swing.JLabel mb1LabelCounter;
     private javax.swing.JPanel mb1Panel;
-    private javax.swing.JLabel mb2Label;
-    private javax.swing.JLabel mb2LabelCounter;
     private javax.swing.JPanel mb2Panel;
+    private javax.swing.JLabel mb3Label;
+    private javax.swing.JLabel mb3LabelCounter;
     private javax.swing.JLabel sLabel;
     private javax.swing.JLabel sLabelCounter;
     private javax.swing.JPanel sPanel;
@@ -366,7 +424,7 @@ public class TecladoTela extends javax.swing.JFrame {
     private javax.swing.JLabel wLabel2;
     private javax.swing.JLabel wLabel3;
     private javax.swing.JLabel wLabel9;
-    private javax.swing.JLabel wLabelConter;
+    private javax.swing.JLabel wLabelCounter;
     private javax.swing.JPanel wPanel;
     // End of variables declaration//GEN-END:variables
 }
